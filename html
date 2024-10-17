@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Turnos - Gimnasio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select, button {
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .message {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Reserva tu turno en el gimnasio</h2>
+    <form id="turnoForm">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="fecha">Fecha del turno:</label>
+        <input type="date" id="fecha" name="fecha" required>
+
+        <label for="hora">Hora del turno:</label>
+        <input type="time" id="hora" name="hora" required>
+
+        <label for="actividad">Tipo de actividad:</label>
+        <select id="actividad" name="actividad" required>
+            <option value="">Selecciona una actividad</option>
+            <option value="clases">Clases</option>
+            <option value="maquinas">Área de máquinas</option>
+        </select>
+
+        <button type="submit">Reservar Turno</button>
+    </form>
+
+    <div id="mensajeExito" class="message" style="display:none;">
+        ¡Tu turno ha sido reservado con éxito!
+    </div>
+</div>
+
+<script>
+    document.getElementById('turnoForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        document.getElementById('mensajeExito').style.display = 'block';
+    });
+</script>
+
+</body>
+</html>
